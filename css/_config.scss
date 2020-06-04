@@ -1,0 +1,48 @@
+$primary-color: #F7F7F7;
+$secondary-color: #3F3F44;
+$trinary-color: #CCEABB;
+$quaternary-color: #FDCB9E;
+$green-color: #36473A;
+$product-background: #907755;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "TenaliRamakrishna-Regular";
+    src: url('../extras/Tenali_Ramakrishna/TenaliRamakrishna-Regular.ttf');
+}
+
+@function set-text-color($color) {
+    @if (lightness($color) > 40%) {
+        @return #000;
+    } @else {
+        @return #fff;
+    }
+}
+
+
+@mixin transition-ease {
+    transition: all 0.3s ease-in-out;
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media screen and (min-width: 1024px){
+        @content;
+    }
+}
+
+@mixin media-xl {
+    @media screen and (min-width: 1600px){
+        @content;
+    }
+}

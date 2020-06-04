@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="node_modules/swup/dist/swup.min.js"></script>
+    <script defer src="https://kit.fontawesome.com/6d2ea823d0.js"></script>
+    <script defer src="js/app.js"></script>
+
+    <!-- JQuery for Navbar Scroll Fade -->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+
+</head>
+
+
+
+<body>
+
+    <!-- add fade class -->
+    <script>
+        document.body.classList.add('fade');
+    </script>
+
+    <div class="about-bg">
+        <header>
+            <div class="menu-btn">
+                <span class="menu-btn_burger"></span>
+            </div>
+        
+            <nav class="nav">
+        
+                <ul class="menu-nav">
+                    <li class="menu-nav_item">
+                        <a href="/index.html" class="menu-nav_link">Home</a>
+                    </li>
+                    <li class="menu-nav_item">
+                        <a href="/products.html" class="menu-nav_link">Products</a>
+                    </li>
+                    <li class="menu-nav_item active">
+                        <a href="/about.html" class="menu-nav_link">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="about">
+        
+                <div class="about_us">
+                    <img src="/img/product-1.jpg" alt="about-us-image">
+                </div>
+
+                <div class="about_description">
+                    <p class="text-type">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti soluta reprehenderit excepturi nobis odit ducimus dolores hic sint quibusdam blanditiis voluptatem quas, fugit consequuntur commodi expedita animi dicta? Adipisci porro ea, illo voluptate ipsam, delectus saepe id fuga ab sequi incidunt omnis. Facere voluptates nam ad in obcaecati voluptatum doloribus.</p>
+                </div>
+
+                <footer>&copy; Copyright 2020</footer>
+            </section>
+        </main>
+    </div>
+    
+    
+    
+
+    
+
+    <!-- remove fade class -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function (e) {
+            document.body.classList.remove('fade');
+        });
+    </script>
+
+</body>
+
+
+
+</html>

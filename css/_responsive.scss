@@ -1,0 +1,108 @@
+@include media-md {
+    
+    .products {
+        top: 175px;
+
+        &_item {
+            &:hover .item-price, 
+            &:hover .item-description {
+                opacity: 0.85;
+                pointer-events: none;
+            }
+
+            &:hover {
+                box-shadow: 0px 3px 5px #000;
+            }
+        }
+
+        &_link {
+
+            .item-price {
+                opacity: 0;
+            }
+
+            .item-description {
+                opacity: 0;
+            }
+        }
+    }
+    .products_title {
+        top: 18%;
+    }
+    
+    .menu-btn {        
+        visibility: hidden;
+    }
+
+    .nav {
+        visibility: visible;
+
+        .menu-nav {
+            display: block;
+            transform: translateY(0);
+            height: 100%;
+            background: transparent;
+            text-align: right;
+
+            &_item {
+                display: inline;
+                padding-right: 1.5rem;
+            }
+
+            &_link {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .about {
+        width: 95vw;
+        &_us {
+            width: 350px;
+            height: 350px;
+            margin: 5px auto;
+
+            img {
+                height: 350px;
+                width: 350px;
+            }
+        }
+
+        &_description {
+            width: 380px;
+            height: 380px;
+            font-size: 20px;
+            padding: 5% 1% 20% 1%;
+        }
+
+        footer {
+            transform: 
+                rotate(0deg)
+        }
+    } 
+}
+
+@include media-lg {
+    .about {
+        &_us {
+            width: 450px;
+            height: 450px;
+            margin: 5px auto;
+
+            img {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+        &_description {
+            width: 500px;
+            height: 450px;
+            margin: 5px auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 1.35em;
+            padding: 5% 1% 20% 1%;
+        }
+    }
+}
