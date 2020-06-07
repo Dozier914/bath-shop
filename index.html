@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transitions</title>
+    <title>Bath & Body Shop</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="node_modules/swup/dist/swup.min.js"></script>
     <script defer src="https://kit.fontawesome.com/6d2ea823d0.js"></script>
-    <script defer src="js/app.js"></script>
+    <script defer src="js/index-app.js"></script>
 </head>
 
 <body>
@@ -19,12 +18,18 @@
     </script>
 
     <header>
+        <div class="cart-btn">
+            <div class="cart-items">0</div>
+            <span class="nav-icon">
+                <i class="fas fa-cart-plus"></i>
+            </span>
+        </div>
+
         <div class="menu-btn">
             <span class="menu-btn_burger"></span>
         </div>
 
         <nav class="nav">
-
             <ul class="menu-nav">
                 <li class="menu-nav_item active">
                     <a href="/index.html" class="menu-nav_link">Home</a>
@@ -53,7 +58,25 @@
             document.body.classList.remove('fade');
         });
     </script>
-    
+
+    <!-- Cart -->
+    <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart">
+                <i class="fas fa-window-close"></i>
+            </span>
+            <h2>Your Cart</h2>
+            <div class="cart-content">
+                <!-- Cart Content Here -->
+            </div>
+            <div class="cart-footer">
+                <h3>Your Total : $ <span class="cart-total">0</span></h3>
+                <button class="clear-cart clear-btn">clear cart</button>
+            </div>
+        </div>
+    </div> 
+    <!-- End of cart -->
+
 </body>
 
 </html>

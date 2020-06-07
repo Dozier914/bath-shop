@@ -7,10 +7,7 @@
     <title>Our Products</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="node_modules/swup/dist/swup.min.js"></script>
     <script defer src="https://kit.fontawesome.com/6d2ea823d0.js"></script>
-    <!-- <script src="js/mobile.js"></script> -->
-    <!-- <script defer src="js/app.js"></script> -->
 
     <!-- JQuery for Navbar Scroll Fade -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -31,8 +28,6 @@
     </script>
 
     <!-- Load mobile.js file on certain width -->
-
-    
     <script type="text/javascript">
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $.getScript('./js/mobile.js');
@@ -50,7 +45,14 @@
         document.body.classList.add('fade');
     </script>
 
-    <header class="products-header">
+    <header>
+        <div class="cart-btn">
+            <div class="cart-items">0</div>
+            <span class="nav-icon">
+                <i class="fas fa-cart-plus"></i>
+            </span>
+        </div>
+
         <div class="menu-btn">
             <span class="menu-btn_burger"></span>
         </div>
@@ -71,86 +73,39 @@
     </header>
     <main>
 
+        <!-- Products -->
         <div class="products_title">
             <h1>Products</h1>
         </div>
-
         <section class="products">
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$19.99</p>
-                    <img id="product-mobile-img" src="/img/product-1.jpg" alt="product-one">
-                    <p id="product-mobile-description" class="item-description">Curology&trade; is the perfect set of cleansing forumula for face and skin.</p>
-                </a>
+            <div class="products-center">
+            
             </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$19.99</p>
-                    <img id="product-mobile-img" src="/img/product-2.jpg" alt="product-two">
-                    <p id="product-mobile-description" class="item-description">A perfect set of towels. They are very soft and dry quick for every use.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$49.99</p>
-                    <img id="product-mobile-img" src="/img/product-3.jpg" alt="product-three">
-                    <p id="product-mobile-description" class="item-description">Specially Customized blankets for use after showers, or after hours.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$49.99</p>
-                    <img id="product-mobile-img" src="/img/product-4.jpg" alt="product-four">
-                    <p id="product-mobile-description" class="item-description">Curology&trade; Acne treatment contains exfoliating properties to eliminate acne.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$29.99</p>
-                    <img id="product-mobile-img" src="/img/product-5.jpg" alt="product-five">
-                    <p id="product-mobile-description" class="item-description">Contains energy that will kickstart your day after every shower.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$24.99</p>
-                    <img id="product-mobile-img" src="/img/product-6.jpg" alt="product-six">
-                    <p id="product-mobile-description" class="item-description">Body Scrup and other products which will leave your skin feeling soft and moisturized.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$9.99</p>
-                    <img id="product-mobile-img" src="/img/product-7.jpg" alt="product-seven">
-                    <p id="product-mobile-description" class="item-description">Salts for your hot bath, feel refreshed and rejuvenated.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$14.99</p>
-                    <img id="product-mobile-img" src="/img/product-8.jpg" alt="product-eight">
-                    <p id="product-mobile-description" class="item-description">Bath Bombs for a nice, soft hot bath. Comes in different colors and smells.</p>
-                </a>
-            </div>
-
-            <div id="product" class="products_item">
-                <a class="products_link" href="#">
-                    <p id="product-mobile-price" class="item-price">$19.99</p>
-                    <img id="product-mobile-img" src="/img/product-9.jpg" alt="product-nine">
-                    <p id="product-mobile-description" class="item-description">A fresh and calming bath soak. This organic product will have you feeling relaxed and happy.</p>
-                </a>
-            </div>
-
-            <footer>&copy; Copyright 2020</footer>
         </section>
+        <!-- End of Products -->
+
+        <!-- Cart -->
+        <div class="cart-overlay">
+            <div class="cart">
+                <span class="close-cart">
+                    <i class="fas fa-window-close"></i>
+                </span>
+                <h2>Your Cart</h2>
+                <div class="cart-content">
+                    <!-- Cart Item -->
+                    <!-- <div class="cart-item">
+                            
+                    </div> -->
+                    <!-- End of Cart Item -->
+                </div>
+                <div class="cart-footer">
+                    <h3>Your Total : $ <span class="cart-total">0</span></h3>
+                    <button class="clear-cart clear-btn">clear cart</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>&copy; Copyright 2020</footer>
     </main>
 
     <!-- remove fade class -->

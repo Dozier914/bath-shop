@@ -14,7 +14,6 @@ const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
-const productsDOM = document.querySelector('.products-center');
 
 let showMenu = false;
 
@@ -46,8 +45,8 @@ let buttonsDOM = [];
 
 // Getting the Products
 class Products {
-    async getProducts(){
-        try{
+    async getProducts() {
+        try {
             let result = await fetch('products.json');
             let data = await result.json();
 
@@ -65,56 +64,8 @@ class Products {
     }
 }
 
-// Display products
 class UI {
-    displayProducts(products){
-        let result = '';
-        products.forEach(product => {
-            result += `
-                <div id="product" class="products_item">
-                    <a class="products_link" href="#">
-                        <p id="product-mobile-price" class="item-price">$${product.price}</p>
-                        <img id="product-mobile-img" src=${product.image} alt="product-one">
-                        <p id="product-mobile-description" class="item-description">${product.description}</p>
-                    </a>
-                    <button class="bag-btn" data-id=${product.id}>
-                        <i class="fas fa-shopping-cart"></i>
-                        add to cart
-                    </button>
-                </div>
-            `
-        })
-        productsDOM.innerHTML = result;
-    }
-    getBagButtons(){
-        const buttons = [...document.querySelectorAll(".bag-btn")];
-        buttonsDOM = buttons;
-        buttons.forEach(button => {
-            let id = button.dataset.id;
-            let inCart = cart.find(item => item.id === id);
-            if(inCart){
-                button.innerText = "In Cart";
-                button.disable = true;
-            }
-            button.addEventListener('click', (event)=>{
-                event.target.innerText = "In Cart";
-                event.target.disabled = true;
-                // Get product from products
-                let cartItem = {...Storage.getProduct(id), amount:1};
-                // Add product to the cart
-                cart = [...cart,cartItem];
-                // Save cart in the local storage
-                Storage.saveCart(cart);
-                // Set cart values
-                this.setCartValues(cart);
-                // Display cart item
-                this.addCartItem(cartItem);
-                // Show Cart
-                // this.showCart();
-            });
-        });
-    }
-    setCartValues(cart){
+    setCartValues(cart) {
         let tempTotal = 0;
         let itemsTotal = 0;
         cart.map(item => {
@@ -124,7 +75,7 @@ class UI {
         cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
         cartItems.innerText = itemsTotal;
     }
-    addCartItem(item){
+    addCartItem(item) {
         const div = document.createElement('div');
         div.classList.add('cart-item');
         div.innerHTML = `
@@ -141,38 +92,38 @@ class UI {
         `;
         cartContent.appendChild(div);
     }
-    showCart(){
-        cartOverlay.classList.add('transparentBcg');
-        cartDOM.classList.add('showCart');
-    }
-    setupAPP(){
+    setupAPP() {
         cart = Storage.getCart();
         this.setCartValues(cart);
         this.populateCart(cart);
         cartBtn.addEventListener('click', this.showCart);
         closeCartBtn.addEventListener('click', this.hideCart);
     }
-    populateCart(cart){
+    populateCart(cart) {
         cart.forEach(item => this.addCartItem(item));
     }
-    hideCart(){
+    showCart() {
+        cartOverlay.classList.add('transparentBcg');
+        cartDOM.classList.add('showCart');
+    }
+    hideCart() {
         cartOverlay.classList.remove('transparentBcg');
         cartDOM.classList.remove('showCart');
     }
-    cartLogic(){
+    cartLogic() {
         // Clear cart button
-        clearCartBtn.addEventListener('click', ()=>{
+        clearCartBtn.addEventListener('click', () => {
             this.clearCart();
         });
         // Cart Functionality
         cartContent.addEventListener('click', event => {
-            if(event.target.classList.contains('remove-item')){
+            if (event.target.classList.contains('remove-item')) {
                 console.log(event.target);
                 let removeItem = event.target;
                 let id = removeItem.dataset.id;
                 cartContent.removeChild(removeItem.parentElement.parentElement);
                 this.removeItem(id);
-            } else if (event.target.classList.contains('fa-chevron-up')){
+            } else if (event.target.classList.contains('fa-chevron-up')) {
                 let addAmount = event.target;
                 let id = addAmount.dataset.id;
                 let tempItem = cart.find(item => item.id === id);
@@ -180,12 +131,12 @@ class UI {
                 Storage.saveCart(cart);
                 this.setCartValues(cart);
                 addAmount.nextElementSibling.innerText = tempItem.amount;
-            } else if (event.target.classList.contains('fa-chevron-down')){
+            } else if (event.target.classList.contains('fa-chevron-down')) {
                 let lowerAmount = event.target;
                 let id = lowerAmount.dataset.id;
                 let tempItem = cart.find(item => item.id === id);
                 tempItem.amount = tempItem.amount - 1;
-                if(tempItem.amount > 0){
+                if (tempItem.amount > 0) {
                     Storage.saveCart(cart);
                     this.setCartValues(cart);
                     lowerAmount.previousElementSibling.innerText = tempItem.amount;
@@ -196,39 +147,37 @@ class UI {
             }
         });
     }
-    clearCart(){
+    clearCart() {
         let cartItems = cart.map(item => item.id);
         cartItems.forEach(id => this.removeItem(id));
-        while(cartContent.children.length > 0){
+        while (cartContent.children.length > 0) {
             cartContent.removeChild(cartContent.children[0]);
         }
     }
-    removeItem(id){
+    removeItem(id) {
         cart = cart.filter(item => item.id !== id);
         this.setCartValues(cart);
         Storage.saveCart(cart);
         let button = this.getSingleButton(id);
-        button.disabled = false;
-        button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
     }
-    getSingleButton(id){
+    getSingleButton(id) {
         return buttonsDOM.find(button => button.dataset.id === id);
     }
 }
 
 // Local Storage
 class Storage {
-    static saveProducts(products){
+    static saveProducts(products) {
         localStorage.setItem("products", JSON.stringify(products));
     }
-    static getProduct(id){
+    static getProduct(id) {
         let products = JSON.parse(localStorage.getItem('products'));
         return products.find(product => product.id === id);
     }
-    static saveCart(cart){
+    static saveCart(cart) {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
-    static getCart(){
+    static getCart() {
         return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     }
 }
@@ -247,11 +196,8 @@ function afterDOMLoaded() {
 
     // Get all products
     products.getProducts().then(products => {
-        ui.displayProducts(products);
         Storage.saveProducts(products);
     }).then(() => {
-        ui.getBagButtons();
         ui.cartLogic();
     })
 }
-

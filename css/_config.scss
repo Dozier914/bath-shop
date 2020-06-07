@@ -4,6 +4,7 @@ $trinary-color: #CCEABB;
 $quaternary-color: #FDCB9E;
 $green-color: #36473A;
 $product-background: #907755;
+$main-spacing: 0.1rem;
 
 * {
     box-sizing: border-box;
@@ -24,9 +25,12 @@ $product-background: #907755;
     }
 }
 
-
 @mixin transition-ease {
     transition: all 0.3s ease-in-out;
+}
+
+@mixin cart-transition {
+    transition: all 0.3s linear;
 }
 
 @mixin media-md {

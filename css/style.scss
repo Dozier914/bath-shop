@@ -2,6 +2,7 @@
 @import 'menu';
 @import 'index';
 @import 'products';
+@import 'cart';
 @import 'about';
 @import 'responsive';
 
@@ -30,8 +31,6 @@ header {
     position: fixed;
     z-index: 2;
     width: 100%;
-    padding: 1rem;
-
 }
 
 main {

@@ -1,5 +1,10 @@
 @include media-md {
-    
+
+    .cart {
+        width: 30vw;
+        min-width: 450px;
+    }
+
     .products {
         top: 175px;
 
@@ -27,7 +32,11 @@
         }
     }
     .products_title {
-        top: 18%;
+        top: 12%;
+    }
+
+    .cart-btn {
+        z-index: 1;
     }
     
     .menu-btn {        

@@ -1,0 +1,76 @@
+{
+    "items": [
+        {
+            "sys": { "id": "1"},
+            "fields":{
+                "price": 19.99,
+                "description": "Curology&trade; is the perfect set of cleansing forumula for face and skin.",
+                "image": { "fields": { "file": { "url": "./img/product-1.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "2"},
+            "fields":{
+                "price": 19.99,
+                "description": "A perfect set of towels. They are very soft and dry quick for every use.",
+                "image": { "fields": { "file": { "url": "./img/product-2.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "3"},
+            "fields":{
+                "price": 49.99,
+                "description": "Specially Customized blankets for use after showers, or after hours.",
+                "image": { "fields": { "file": { "url": "./img/product-3.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "4"},
+            "fields":{
+                "price": 49.99,
+                "description": "Curology&trade; Acne treatment contains exfoliating properties to eliminate acne.",
+                "image": { "fields": { "file": { "url": "./img/product-4.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "5"},
+            "fields":{
+                "price": 29.99,
+                "description": "Contains energy that will kickstart your day after every shower.",
+                "image": { "fields": { "file": { "url": "./img/product-5.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "6"},
+            "fields":{
+                "price": 24.99,
+                "description": "Body Scrup and other products which will leave your skin feeling soft and moisturized.",
+                "image": { "fields": { "file": { "url": "./img/product-6.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "7"},
+            "fields":{
+                "price": 9.99,
+                "description": "Salts for your hot bath, feel refreshed and rejuvenated.",
+                "image": { "fields": { "file": { "url": "./img/product-7.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "8"},
+            "fields":{
+                "price": 14.99,
+                "description": "Bath Bombs for a nice, soft hot bath. Comes in different colors and smells.",
+                "image": { "fields": { "file": { "url": "./img/product-8.jpg"} } }
+            }
+        },
+        {
+            "sys": { "id": "9"},
+            "fields":{
+                "price": 19.99,
+                "description": "A fresh and calming bath soak. This organic product will have you feeling relaxed and happy.",
+                "image": { "fields": { "file": { "url": "./img/product-9.jpg"} } }
+            }
+        }
+    ]
+}
